@@ -94,7 +94,13 @@ public class MyLoginController implements Controller{
         }
 
     };
-
+    
+ Handler logout = (ctx)->{
+        Login log = ctx.bodyAsClass(Login.class);
+                ctx.req.getSession().invalidate();
+            ctx.result(" logout seccessfully");
+            ctx.status(201);
+    };
     @Override
     public void addRoutes(Javalin app) {
         app.get("/manager/allLogins", getLogins);
@@ -105,6 +111,7 @@ public class MyLoginController implements Controller{
         app.put("/customer/updateLogin", updateLogin);
         app.put("/loginpage", checkAll);
         app.post("/addLogin", newLogin);
+        app.get("/logout",logout);
 
     }
     
