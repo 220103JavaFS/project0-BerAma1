@@ -96,7 +96,7 @@ public class MyLoginController implements Controller{
     };
     
  Handler logout = (ctx)->{
-        Login log = ctx.bodyAsClass(Login.class);
+       // Login log = ctx.bodyAsClass(Login.class);
                 ctx.req.getSession().invalidate();
             ctx.result(" logout seccessfully");
             ctx.status(201);
